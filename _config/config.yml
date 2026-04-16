@@ -8,17 +8,17 @@ SilverStripe\Core\Injector\Injector:
   RedirectUrlDataSource:
     class: Heyday\SilverStripeRedirects\Source\DataSource\DataListDataSource
     constructor:
-      0: '%$RedirectUrlDataList'
-      1: '%$Heyday\SilverStripeRedirects\Source\Transformer\RedirectUrlTransformer'
+      0: '@$RedirectUrlDataList'
+      1: '@$Heyday\SilverStripeRedirects\Source\Transformer\RedirectUrlTransformer'
 
   CachedRedirectUrlDataSource:
     class: Heyday\SilverStripeRedirects\Source\DataSource\CachedDataSource
     constructor:
-      0: '%$RedirectUrlDataSource'
+      0: '@$RedirectUrlDataSource'
 
   Heyday\SilverStripeRedirects\Source\RedirectUrl:
     properties:
-      dataSource: '%$CachedRedirectUrlDataSource'
+      dataSource: '@$CachedRedirectUrlDataSource'
 
   RedirectUrlDataList:
     class: SilverStripe\ORM\DataList
@@ -27,11 +27,11 @@ SilverStripe\Core\Injector\Injector:
 
   Heyday\SilverStripeRedirects\Source\Redirector:
     constructor:
-      0: '%$CachedRedirectUrlDataSource'
+      0: '@$CachedRedirectUrlDataSource'
 
   Heyday\SilverStripeRedirects\Source\RequestFilter:
     constructor:
-      0: '%$Heyday\SilverStripeRedirects\Source\Redirector'
+      0: '@$Heyday\SilverStripeRedirects\Source\Redirector'
 
   Psr\SimpleCache\CacheInterface.redirectsCache:
     factory: SilverStripe\Core\Cache\CacheFactory
@@ -46,4 +46,4 @@ SilverStripe\Core\Injector\Injector:
   SilverStripe\Control\Director:
     properties:
       Middlewares:
-        RedirectMiddleware: '%$Heyday\SilverStripeRedirects\Source\RequestFilter'
+        RedirectMiddleware: '@$Heyday\SilverStripeRedirects\Source\RequestFilter'

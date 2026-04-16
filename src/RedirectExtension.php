@@ -2,9 +2,9 @@
 
 namespace Heyday\SilverStripeRedirects\Source;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 
-class RedirectExtension extends DataExtension
+class RedirectExtension extends Extension
 {
     public function onAfterDelete()
     {

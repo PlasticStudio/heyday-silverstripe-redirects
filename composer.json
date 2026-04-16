@@ -9,7 +9,7 @@
     }
   },
   "require": {
-    "silverstripe/cms": "^5"
+    "silverstripe/cms": "^6"
   },
   "extra": {
     "branch-alias": {

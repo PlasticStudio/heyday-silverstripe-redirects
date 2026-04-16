@@ -2,7 +2,7 @@
 
 namespace Heyday\SilverStripeRedirects\Source;
 
-use SilverStripe\Forms\Validator;
+use SilverStripe\Forms\Validation\Validator;
 
 class RedirectUrlValidator extends Validator
 {
